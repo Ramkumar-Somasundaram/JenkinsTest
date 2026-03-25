@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-dock-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: currency
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+ 
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-container
+    ports:
+      - "8900:8080"
+    depends_on:
+      - mysql-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-dock-container:3306/currency
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Password@12345
