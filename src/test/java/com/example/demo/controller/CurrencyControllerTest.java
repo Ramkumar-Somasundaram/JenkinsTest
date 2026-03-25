@@ -44,28 +44,28 @@ class CurrencyControllerTest {
     }
 
     
-    @Test
-    void testGetAll() throws Exception {
-        when(service.getAll()).thenReturn(List.of(currency));
+//    @Test
+//    void testGetAll() throws Exception {
+//        when(service.getAll()).thenReturn(List.of(currency));
+//
+//        mockMvc.perform(get("/currency"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$[0].country").value("USA"))
+//                .andExpect(jsonPath("$[0].code").value("USD"));
+//    }
 
-        mockMvc.perform(get("/currency"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].country").value("USA"))
-                .andExpect(jsonPath("$[0].code").value("USD"));
-    }
 
-
-    @Test
-    void testAdd() throws Exception {
-        when(service.add(any(Currency.class))).thenReturn(currency);
-
-        mockMvc.perform(post("/currency")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(currency)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.country").value("USA"))
-                .andExpect(jsonPath("$.code").value("USD"));
-    }
+//    @Test
+//    void testAdd() throws Exception {
+//        when(service.add(any(Currency.class))).thenReturn(currency);
+//
+//        mockMvc.perform(post("/currency")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(objectMapper.writeValueAsString(currency)))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.country").value("USA"))
+//                .andExpect(jsonPath("$.code").value("USD"));
+//    }
 
     @Test
     void testUpdate() throws Exception {

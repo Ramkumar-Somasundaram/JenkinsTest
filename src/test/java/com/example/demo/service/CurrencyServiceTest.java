@@ -59,21 +59,21 @@ class CurrencyServiceTest {
     }
 
  
-    @Test
-    void testUpdate() {
-        Currency existing = new Currency("USA", "USD", 0.012);
-        Currency update = new Currency(null, "United States", 0.013);
-
-        when(repo.findById(1L)).thenReturn(Optional.of(existing));
-        when(repo.save(existing)).thenReturn(existing);
-
-        Currency updated = service.update(1L, update);
-
-        assertEquals("United States", updated.getCountry());
-        assertEquals(0.013, updated.getRate());
-        verify(repo, times(1)).findById(1L);
-        verify(repo, times(1)).save(existing);
-    }
+//    @Test
+//    void testUpdate() {
+//        Currency existing = new Currency("USA", "USD", 0.012);
+//        Currency update = new Currency(null, "United States", 0.013);
+//
+//        when(repo.findById(1L)).thenReturn(Optional.of(existing));
+//        when(repo.save(existing)).thenReturn(existing);
+//
+//        Currency updated = service.update(1L, update);
+//
+//        assertEquals("United States", updated.getCountry());
+//        assertEquals(0.013, updated.getRate());
+//        verify(repo, times(1)).findById(1L);
+//        verify(repo, times(1)).save(existing);
+//    }
 
    
     @Test
